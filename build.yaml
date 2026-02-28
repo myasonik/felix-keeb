@@ -1,0 +1,31 @@
+---
+include:
+  # Dongle (Prospector – Seeeduino XIAO BLE)
+  - board: seeeduino_xiao_ble
+    shield: helix_dongle prospector_adapter
+    artifact-name: felixkeeb-dongle
+
+  # Left half (nice!nano v2)
+  - board: nice_nano_v2
+    shield: helix_left
+    cmake-args: >-
+      -DCONFIG_ZMK_SPLIT=y
+      -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    artifact-name: felixkeeb-left
+
+  # Right half (nice!nano v2)
+  - board: nice_nano_v2
+    shield: helix_right
+    cmake-args: >-
+      -DCONFIG_ZMK_SPLIT=y
+      -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    artifact-name: felixkeeb-right
+
+  # Settings reset firmware — flash to each device before first pair
+  - board: nice_nano_v2
+    shield: settings_reset
+    artifact-name: settings-reset-nicenano
+
+  - board: seeeduino_xiao_ble
+    shield: settings_reset
+    artifact-name: settings-reset-dongle

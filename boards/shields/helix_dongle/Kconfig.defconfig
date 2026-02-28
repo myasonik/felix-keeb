@@ -1,0 +1,29 @@
+if SHIELD_HELIX_DONGLE
+
+config ZMK_KEYBOARD_NAME
+    default "FelixKeeb"
+
+# This device is the ZMK split central (it receives key events from the
+# two keyboard halves over BLE and sends HID output to the host via USB).
+config ZMK_SPLIT
+    default y
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+# Two peripherals: left half + right half
+config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+    default 2
+
+# 2 peripherals + 5 Bluetooth host profiles
+config BT_MAX_CONN
+    default 7
+
+config BT_MAX_PAIRED
+    default 7
+
+# Enable USB HID output on the dongle
+config ZMK_USB
+    default y
+
+endif # SHIELD_HELIX_DONGLE
